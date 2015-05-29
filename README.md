@@ -16,7 +16,7 @@ composer install
 Configuração do DB
 ===========================
 Estou utilizando o ORM [Doctrine DBAL](http://www.doctrine-project.org/)
-Devemos configurar o ORM, abra o arquivo /src/app.php. Em seguida insira a seguinte configuração:
+devemos configurar o ORM, abra o arquivo /src/app.php. Em seguida insira a seguinte configuração:
 
 ```sh
 $app->register(new Silex\Provider\DoctrineServiceProvider(), array(
@@ -55,7 +55,7 @@ INSERT INTO `produtos` VALUES (1,'Colorado Ithaca','A Ithaca é feita com malte,
 Desenvolvimento
 ===========================
 
-No desenvolvimento utilizo a extinção do Google Chrome [POSTMAN - REST Client](https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm) uma ferramenta muito legal para ir testando as funcionalidades, podendo simular todas as requisições necessárias.
+No desenvolvimento utilizo a extenção do Google Chrome [POSTMAN - REST Client](https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm) uma ferramenta muito legal para ir testando as funcionalidades, podendo simular todas as requisições necessárias.
 
 Rotas
 ===========================

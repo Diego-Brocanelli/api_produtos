@@ -17,4 +17,15 @@ $app['twig'] = $app->share($app->extend('twig', function($twig, $app) {
     return $twig;
 }));
 
+$app->register(new Silex\Provider\DoctrineServiceProvider(), array(
+    'db.options' => array(
+	    'dbname'   => 'api_produtos',
+	    'user'     => 'root',
+	    'password' => '',
+	    'host'     => 'localhost',
+	    'driver'   => 'pdo_mysql',
+	    'charset'  => 'utf8',
+	),
+));
+
 return $app;

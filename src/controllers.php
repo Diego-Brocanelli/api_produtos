@@ -6,13 +6,25 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
-//Request::setTrustedProxies(array('127.0.0.1'));
-
+//documentação 
 $app->get('/', function () use ($app) {
-    return $app['twig']->render('index.html', array());
+    return $app['twig']->render('doc.html', array());
 })
-->bind('homepage')
-;
+->bind('homepage');
+//lista de produtos
+$app->get('/api/v1/produtos', function () use ($app) {
+    $sql = 'SELECT * FROM produtos;';
+    $produtos = $app['db']->fetchAssoc($sql);
+    //em caso de nenhum produto cadastrado
+    if($produtos === false)
+        $produtos = json_encode(['mensagem:'=>' Nenhum produto cadastrado']);
+
+    return $app->json($produtos);
+});
+//documentação
+$app->get('/api/v1/docs', function () use ($app) {
+    return $app['twig']->render('doc.html', array());
+});
 
 $app->error(function (\Exception $e, $code) use ($app) {
     if ($app['debug']) {
